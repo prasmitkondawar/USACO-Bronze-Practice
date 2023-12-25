@@ -1,6 +1,10 @@
 {
     "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "string": "cpp"
     }
 }
