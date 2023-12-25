@@ -5,6 +5,11 @@ using namespace std;
 
 int main() 
 {
+    
+// For getting input from input.txt file
+   freopen("speeding.in", "r", stdin);
+  // Printing the Output to output.txt file
+   freopen("speeding.out", "w", stdout);
     int n, m;
     cin >> n >> m;
 
@@ -37,7 +42,7 @@ int main()
     vector<int> cSBoard;
     cSBoard.resize(101);
     i = 0;
-    for(int counter = 0; counter < n; counter++) {
+    for(int counter = 0; counter < m; counter++) {
         for(int j = 0; j < cowSpeed[counter].first; j++) {
             cSBoard[i] = cowSpeed[counter].second;
             i++;
