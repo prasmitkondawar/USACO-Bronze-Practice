@@ -24,13 +24,23 @@ int main()
             int length = (b1[3] - b1[1]) - (yf - yi);
             int width = b1[2] - b1[0];
             cout << length * width << "\n";
+        } else {
+            int length = b1[2] - b1[0];
+            int width = b1[3] - b1[1];
+            cout << length * width << "\n"; 
         }
-    } else if (b1[1] == b2[1] && b1[3] == b2[3]) {
+    } 
+    //checking if the billboards are shared horizontally
+    else if (b1[1] == b2[1] && b1[3] == b2[3]) {
         int xi = max(b1[0], b2[0]);
         int xf = min(b1[2], b2[2]);
         if(xf >= xi) {
             int length = b1[3] - b1[1];
             int width = (b1[2] - b1[0]) - (xf - xi);
+            cout << length * width << "\n";
+        } else {
+            int length = b1[2] - b1[0];
+            int width = b1[3] - b1[1];
             cout << length * width << "\n";
         }
     } else {
