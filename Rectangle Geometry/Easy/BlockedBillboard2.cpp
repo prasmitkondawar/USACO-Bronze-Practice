@@ -5,6 +5,10 @@ using namespace std;
 
 int main()
 {
+    // For getting input from input.txt file
+   freopen("billboard.in", "r", stdin);
+  // Printing the Output to output.txt file
+   freopen("billboard.out", "w", stdout);
     vector<int> b1(4);
     vector<int> b2(4);
 
@@ -13,5 +17,25 @@ int main()
     cin >> b2[0] >> b2[1] >> b2[2] >> b2[3];
 
     //checking if billboards are shared vertically
-    if((b1[0] == b2[0]) && (b1[2] == b2[2]))
-}
+    if((b1[0] == b2[0]) && (b1[2] == b2[2])) {
+        int yi = max(b1[1], b2[1]);
+        int yf = min(b1[3], b2[3]);
+        if(yf >= yi) {
+            int length = (b1[3] - b1[1]) - (yf - yi);
+            int width = b1[2] - b1[0];
+            cout << length * width << "\n";
+        }
+    } else if (b1[1] == b2[1] && b1[3] == b2[3]) {
+        int xi = max(b1[0], b2[0]);
+        int xf = min(b1[2], b2[2]);
+        if(xf >= xi) {
+            int length = b1[3] - b1[1];
+            int width = (b1[2] - b1[0]) - (xf - xi);
+            cout << length * width << "\n";
+        }
+    } else {
+        int length = b1[2] - b1[0];
+        int width = b1[3] - b1[1];
+        cout << length * width << "\n";
+    }
+} 
