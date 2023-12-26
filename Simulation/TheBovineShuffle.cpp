@@ -5,11 +5,17 @@ using namespace std;
 
 int main() 
 {
+    // For getting input from input.txt file
+    freopen("shuffle.in", "r", stdin);
+    // Printing the Output to output.txt file
+    freopen("shuffle.out", "w", stdout);
     int n;
     cin >> n;
     vector<int> org(n);
     for(int i = 0; i < n; i++) {
-        cin >> org[i];
+        int num;
+        cin >> num;
+        org[i] = num - 1;
     }
 
     vector<int> id(n);
@@ -25,16 +31,15 @@ int main()
     vector<int> temp(n);
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < n; j++) {
-            temp[rev[j]] = org[j];
+            temp[rev[j]] = id[j];
         }
 
         for(int j = 0; j < n; j++) {
-            org[j] = temp[j];
-            temp[j] = 0;
+            id[j] = temp[j];
         }
     }
 
     for(int i = 0; i < n; i++) {
-        cout << org[i] << "\n";
+        cout << id[i] << "\n";
     }
 }
