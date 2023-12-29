@@ -56,13 +56,21 @@ int main()
 
             startLower -= upper;
             startUpper -= lower;
+
+            if(startUpper < 0) {
+                startUpper = 0;
+            }
+
+            if(startLower < 0) {
+                startLower = 0;
+            }
         } else {
             int lower, upper;
             lower = get<1>(info[i]);
             upper = get<2>(info[i]);
 
-            startLower += upper;
-            startUpper += lower;
+            startLower += lower;
+            startUpper += upper;
         }
     }
 
@@ -99,8 +107,10 @@ int main()
             lower = get<1>(info[i]);
             upper = get<2>(info[i]);
 
-            endLower += upper;
-            endUpper += lower;
+            endLower += lower;
+            endUpper += upper;
+
+            
         } else {
             int lower, upper;
             lower = get<1>(info[i]);
@@ -108,6 +118,14 @@ int main()
 
             endLower -= upper;
             endUpper -= lower;
+
+            if(endLower < 0) {
+                endLower = 0;
+            }
+
+            if(endUpper < 0) {
+                endUpper = 0;
+            }
         }
     }
 
