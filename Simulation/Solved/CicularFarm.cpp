@@ -6,6 +6,10 @@ using namespace std;
 
 int main()
 {
+    // For getting input from input.txt file
+    freopen("cbarn.in", "r", stdin);
+    // Printing the Output to output.txt file
+    freopen("cbarn.out", "w", stdout);
     int n;
     cin >> n;
     vector<int> barn(n);
@@ -22,7 +26,7 @@ int main()
         int cows = totCows;
         int counter = i;
         int distance = 0;
-        while(cows >= 0) {
+        while(cows > 0) {
             cows -= barn[counter];
             distance += cows;
             counter++;
