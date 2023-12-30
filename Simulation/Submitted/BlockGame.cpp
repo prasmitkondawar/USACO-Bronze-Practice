@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll         long long int
 #define umap       unordered_map
@@ -26,13 +28,17 @@ using namespace std;
 
 int main() 
 {
+    // For getting input from input.txt file
+    freopen("blocks.in", "r", stdin);
+    // Printing the Output to output.txt file
+    freopen("blocks.out", "w", stdout);
     vector<tuple<int, string, string>> blocks;
     int n;
     cin >> n;
     for(int i = 0; i < n; i++) {
-        cout << "hi";
-        get<0>(blocks[i]) = 0;
-        cin >> get<1>(blocks[i]) >> get<2>(blocks[i]);
+        string front, back;
+        cin >> front >> back;
+        blocks[i] = make_tuple(0, front, back);
     }
 
     // vector<char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
