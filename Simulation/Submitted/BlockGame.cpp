@@ -77,4 +77,16 @@ int main()
     f(i, 26) {
         cout << answer[i] << "\n";
     }
+
+    // I Think the approach used generating all possible 2^n combinations of blocks 
+    // and then for each character it's checking maximum frequency of it among all 2^n combinations
+    // Time coplexity is  2^n * (10+10)   , since length of each word can be at max 10
+    // This will give TLE since 2^100 is super large number
+    // Think it the way like in which combination maximum number of a's would be used , in which max. b will be used ...
+    // if input is 
+    // n = 3 
+    // abba baaa
+    // acds dbdb
+    // gaad alls
+    // we can say that max a will be used for this combination of words baaa acds gaad
 }
