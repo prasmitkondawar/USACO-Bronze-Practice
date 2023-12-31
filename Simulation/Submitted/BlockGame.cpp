@@ -41,36 +41,28 @@ int main()
         blocks[i] = make_tuple(0, front, back);
     }
 
-    // vector<char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    vector<char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     vector<int> answer(26);
-    while(get<0>(blocks[n-1]) < 2) {
-        vector<int> temp(26);
-        string s;
-        for(int i = 0; i < n; i++) {
-            int sign = get<0>(blocks[i]);
-            if(sign == 1) {
-                s += get<2>(blocks[i]);
-            } else {
-                s += get<1>(blocks[i]);
+    for(int i = 0; i < 26; i++) {
+        char letter = alphabet[i];
+        for(int j = 0; j < n; j++) {
+            string s1 = get<1>(blocks[i]);
+            string s2 = get<2>(blocks[i]);
+            int counter1 = 0;
+            int counter2 = 0;
+            for(int c1 = 0; c1 < s1.length(); c1++) {
+                if(s1[c1] == letter) {
+                    counter1++;
+                }
             }
-        }
 
-        for(int i = 0; i < s.length(); i++) {
-            temp[int(s[i]) - 97]++;
-        }
-
-        for(int i = 0; i < 26; i++) {
-            answer[i] = max(temp[i], answer[i]);
-        }
-
-        for(int i = 0; i < n - 1; i++) {
-            if(i == 0) {
-                get<0>(blocks[i])++;
+            for(int c2 = 0; c2 < s2.length(); c2++) {
+                if(s2[c2] == letter){
+                    counter2++;
+                }            
             }
-            if(get<0>(blocks[i]) == 2) {
-                get<0>(blocks[i]) = 0;
-                get<0>(blocks[i+1])++;
-            }
+
+            answer[i] += max(counter1, counter2);
         }
     }
 
