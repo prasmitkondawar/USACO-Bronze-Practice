@@ -89,4 +89,6 @@ int main()
     // acds dbdb
     // gaad alls
     // we can say that max a will be used for this combination of words baaa acds gaad
+    // Maximum number of a's will be req. if for each block we chose the word having greater freq. of a 
+    // Similarly we can go for other character
 }
