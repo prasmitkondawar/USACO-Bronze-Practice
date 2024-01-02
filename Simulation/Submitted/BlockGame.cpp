@@ -46,6 +46,7 @@ int main()
     for(int i = 0; i < 26; i++) {
         char letter = alphabet[i];
         for(int j = 0; j < n; j++) {
+            // incorrect use of variable to assign s1 and s2
             string s1 = get<1>(blocks[i]);
             string s2 = get<2>(blocks[i]);
             int counter1 = 0;
