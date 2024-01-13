@@ -14,6 +14,10 @@ using namespace std;
 
 int main()
 {
+        // For getting input from input.txt file
+    freopen("mowing.in", "r", stdin);
+    // Printing the Output to output.txt file
+    freopen("mowing.out", "w", stdout);
     int n;
     cin >> n;
     vector<pair<string, int>> directions(n);
@@ -27,6 +31,8 @@ int main()
     int xi, yi, x, y;
     xi = 0;
     yi = 0;
+    x = 0;
+    y = 0;
     f(i, n) {
         if(directions[i].F == "N") {
             y += directions[i].S;
@@ -42,17 +48,17 @@ int main()
         if(y < yi) yi = y;
     }
 
-    xi = -xi;
-    yi = -yi;
+    xi = -1 * xi;
+    yi = -1 * yi;
 
     //resizing field
-    vector<vector<int>> field(1001);
-    f(i, 1000) {
-        field[i].resize(1001);
-        f(j, 1000) {
-            field[i][j] = -1;
-        }
-    }
+    vector<vector<int>> field(2001, vector<int> (2001, -1));
+    // f(i, 2000) {
+    //     field[i].resize(2001);
+    //     f(j, 2000) {
+    //         field[i][j] = -1;
+    //     }
+    // }
 
     //simulation
     int ans = INT_MAX;
