@@ -19,7 +19,7 @@ int main() {
 	int countery = combos;
 	int ans = 0;
 	bool found = false;
-	for(int i = 0; i < combos; i++) {
+	for(int i = 0; i <= combos; i++) {
 		int dif1 = m - (countery * y);
 		counterx = dif1 / x;
 		int tot = (countery * y) + (counterx * x);
