@@ -9,57 +9,44 @@ int main()
 {
     int n;
     cin >> n;
-    vector<vector<int>> freq(3);
     string s;
     cin >> s;
 
-    vector<int> answer = {0, 0};
-    bool isStreakF = false;
-    bool isStreakBE = false;
-    char startC = s[0];
-    char endC = s[n - 1];
-    int streak = 0;
-    int constant = 0;
-    for(int i = 1; i < n + 1; i++) {
-        char c = s[i];
-        if(isStreakBE || c == s[i-1]) {
-            if(c == s[i-1]) {
-                streak++;
-                isStreakBE = true;
-            } else {
-                constant += streak;
-                streak = 0;
-                isStreakBE = false;
-            }
-        } else if(isStreakF || c == 'F') {
-            if(c == 'F') {
-                isStreakF = true;
-                streak++;
-            } else {
-                endC = c;
-                if(startC == endC) {
-                    if(streak % 2 == 0) {
-                        //add possible values (all odds of streak)
-                    } else {
-                        //add possible values (all evens of streak)
-                    }
-                } else if(startC != endC) {
-                    if(streak % 2 == 0) {
-                        //add possible values (all evens of streak)
-                    } else {
-                        //add possible values (all odds of streak)
-                    }
-                }
-                isStreakF = false;
-                streak = 0;
-            }
+    int base=0;
+    vector <pair<int,int>> v;
+    for(int i=0;i<n;i++)
+    {
+        if(s[i]=='F')
+        {
+           int len=0;
+           int j=i;
+           while(j<n && s[j]==s[i]) j++;
+                   -   --;
 
-            if(streak == 1) {
-                startC = s[i-1];
-            }
+           len=j-i;
+           i=j;
+        }
+        else 
+        {
+          if(i>0 && s[i]==s[i-1]) base++;
         }
     }
 
-    cout << answer.size() << "\n";
-    for(int i : answer) cout << i << "\n";
+    // vector<int> answer = {0, 0};
+    // bool isStreakF = false;
+    // int length = 0;
+    // int constant = 0;
+    // char left = s[0];
+    // char right = s[n - 1];
+    // for(int i = 1; i < n - 1; i++) {
+    //     if(s[i] == 'F') {
+    //         isStreakF = true;
+    //     } else {
+    //         isStreakF = false;
+    //     }
+
+    //     if(isStreakF) {
+    //         length++;
+    //     }
+    // }
 }
