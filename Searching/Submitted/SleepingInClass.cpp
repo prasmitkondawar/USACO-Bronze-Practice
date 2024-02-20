@@ -19,6 +19,10 @@ int main()
             sum += nums[i];
         }
 
+        if(sum == 0) {
+            cout << "0" << "\n";
+            continue;
+        }
         vector<int> factors;
         for(int i = 1; i <= sqrt(sum); i++) {
             if(sum % i == 0) {
@@ -38,8 +42,10 @@ int main()
                     countSum += nums[j];
                     j++;
                 }
+                j--;
 
                 if(countSum == f) {
+                    //cout << "i: " << i << " j: " << j << " f: " << f << "\n";
                     steps += j - i;
                     i = j;
                     countSum = 0;
