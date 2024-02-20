@@ -9,7 +9,7 @@ int binarySearch(vector<int> nums, int l, int r, int x)
 {
     while (l <= r) {
         int m = (l + r) / 2;
-        // cout << "m: " << m << " l: " << l << " r: " << r << "\n";
+        //cout << "m: " << m << " l: " << l << " r: " << r << "\n";
  
         if(m > (nums.size() - 1)) {
             return -1;
@@ -36,18 +36,24 @@ int main() {
     int n, q;
     cin >> n >> q;
     vector<int> dif (n);
+    vector<int> difference(n);
 
     for(int i = 0; i < n; i++) {
         cin >> dif[i];
     }
 
+    int counter = 0;
     for(int i = 0; i < n; i++) {
         int t;
         cin >> t;
         dif[i] -= t;
+        if(dif[i] >= 0) {
+            difference[i] = dif[i];
+            counter++;
+        }
     }
 
-    sort(dif.rbegin(), dif.rend()); 
+    sort(difference.rbegin(), difference.rend()); 
 
     for(int i = 0; i < q; i++) {
         int v, s;
@@ -56,7 +62,8 @@ int main() {
         // if(s < dif[0]) {
         //     index = binarySearch(dif, 0, n - 1, s);
         // }
-        while(dif[index] > s) index++;
+        while(difference[index] > s) index++;
+
         if(index >= v) cout << "YES" << "\n";
         else cout << "NO" << "\n";
     }

@@ -13,7 +13,7 @@ int main()
     vector<long long> milks(n);
 	string s  = "";
 	cin >> s;
-    for(long long i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         dir[i] = s[i];
         // cout << s.at(i) << "\n";
     }
@@ -24,7 +24,7 @@ int main()
         totSum += milks[i];
     }
 
-    for(long long i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         long long before = i - 1;
         long long after = i + 1;
 
@@ -37,29 +37,29 @@ int main()
         
         // cout << cBefore << " " << cCurrent << " " << cAfter << "\n";
 
-        if(cBefore == 'R' && cCurrent == 'R' && cAfter == 'L') {
+        if(cBefore == cCurrent && cCurrent == 'R' && cAfter == 'L') {
             // cout << "inside" << "\n";
             long long search = before;
-            long long bank = 0;
+            long long lMilk = 0;
             while(dir[search] == 'R') {
-                bank += milks[search];
+                lMilk += milks[search];
                 search--;
                 if(search == -1) search = n - 1;
             }
 
             // cout << i << "\n";
-            totSum -= min(bank, m);
-        } else if(cBefore == 'R' && cCurrent == 'L' && cAfter == 'L') {
+            totSum -= min(lMilk, m);
+        } else if(cBefore == 'R' && cCurrent == 'L' && cAfter == cCurrent) {
             // cout << i << "\n";
             long long search = after;
-            long long bank = 0;
+            long long lMilk = 0;
             while(dir[search] == 'L') {
-                bank += milks[search];
+                lMilk += milks[search];
                 search++;
                 if(search == n) search = 0;
             }
 
-            totSum -= min(bank, m);
+            totSum -= min(lMilk, m);
         }
     }
 
