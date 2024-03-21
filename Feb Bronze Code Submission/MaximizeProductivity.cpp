@@ -7,7 +7,7 @@ using namespace std;
 
 int binarySearch(vector<int> nums, int l, int r, int x)
 {
-    while (l <= r) {
+    while (l < r) {
         int m = (l + r) / 2;
         //cout << "m: " << m << " l: " << l << " r: " << r << "\n";
  
@@ -59,10 +59,10 @@ int main() {
         int v, s;
         cin >> v >> s;
         int index = 0;
-        // if(s < dif[0]) {
-        //     index = binarySearch(dif, 0, n - 1, s);
-        // }
-        while(difference[index] > s) index++;
+        if(s < dif[0]) {
+            index = binarySearch(dif, 0, n - 1, s);
+        }
+        //while(difference[index] > s) index++;
 
         if(index >= v) cout << "YES" << "\n";
         else cout << "NO" << "\n";
